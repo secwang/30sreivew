@@ -13,6 +13,9 @@
 		0AAD7D641DCEFDBB006E37C1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0AAD7D621DCEFDBB006E37C1 /* Main.storyboard */; };
 		0AAD7D6F1DCEFDBB006E37C1 /* _0sreviewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AAD7D6E1DCEFDBB006E37C1 /* _0sreviewTests.swift */; };
 		0AAD7D7A1DCEFDBB006E37C1 /* _0sreviewUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AAD7D791DCEFDBB006E37C1 /* _0sreviewUITests.swift */; };
+		0AAD7D881DCF00CF006E37C1 /* SQLite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AAD7D871DCF00CF006E37C1 /* SQLite.framework */; };
+		0AAD7D891DCF00CF006E37C1 /* SQLite.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0AAD7D871DCF00CF006E37C1 /* SQLite.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		0AAD7D8D1DCF010C006E37C1 /* SQLite.framework.dSYM in CopyFiles */ = {isa = PBXBuildFile; fileRef = 0AAD7D8C1DCF010C006E37C1 /* SQLite.framework.dSYM */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,6 +35,30 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		0AAD7D8A1DCF00CF006E37C1 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				0AAD7D891DCF00CF006E37C1 /* SQLite.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0AAD7D8B1DCF00EA006E37C1 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 16;
+			files = (
+				0AAD7D8D1DCF010C006E37C1 /* SQLite.framework.dSYM in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		0AAD7D591DCEFDBB006E37C1 /* 30sreview.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = 30sreview.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0AAD7D5C1DCEFDBB006E37C1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -45,6 +72,8 @@
 		0AAD7D751DCEFDBB006E37C1 /* 30sreviewUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = 30sreviewUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0AAD7D791DCEFDBB006E37C1 /* _0sreviewUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = _0sreviewUITests.swift; sourceTree = "<group>"; };
 		0AAD7D7B1DCEFDBB006E37C1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0AAD7D871DCF00CF006E37C1 /* SQLite.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SQLite.framework; path = Carthage/Build/Mac/SQLite.framework; sourceTree = "<group>"; };
+		0AAD7D8C1DCF010C006E37C1 /* SQLite.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = SQLite.framework.dSYM; path = Carthage/Build/Mac/SQLite.framework.dSYM; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,6 +81,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0AAD7D881DCF00CF006E37C1 /* SQLite.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -75,6 +105,8 @@
 		0AAD7D501DCEFDBB006E37C1 = {
 			isa = PBXGroup;
 			children = (
+				0AAD7D8C1DCF010C006E37C1 /* SQLite.framework.dSYM */,
+				0AAD7D871DCF00CF006E37C1 /* SQLite.framework */,
 				0AAD7D5B1DCEFDBB006E37C1 /* 30sreview */,
 				0AAD7D6D1DCEFDBB006E37C1 /* 30sreviewTests */,
 				0AAD7D781DCEFDBB006E37C1 /* 30sreviewUITests */,
@@ -132,6 +164,8 @@
 				0AAD7D551DCEFDBB006E37C1 /* Sources */,
 				0AAD7D561DCEFDBB006E37C1 /* Frameworks */,
 				0AAD7D571DCEFDBB006E37C1 /* Resources */,
+				0AAD7D8A1DCF00CF006E37C1 /* Embed Frameworks */,
+				0AAD7D8B1DCF00EA006E37C1 /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -402,6 +436,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = UR8YU25CNF;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+				);
 				INFOPLIST_FILE = 30sreview/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "secwang.github.io.-0sreview";
@@ -416,6 +454,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = UR8YU25CNF;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+				);
 				INFOPLIST_FILE = 30sreview/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "secwang.github.io.-0sreview";
