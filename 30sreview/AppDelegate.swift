@@ -10,17 +10,36 @@ import Cocoa
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
-
-
-
+    
+    
     func applicationDidFinishLaunching(_ aNotification: Notification) {
-        // Insert code here to initialize your application
-    }
+  
+        
+        PersistentTheShareInstance.sharedInstance.createTables(PersistentTheShareInstance.sharedInstance.db!)
+   
+        
+        print( PersistentTheShareInstance.sharedInstance.db?.description ??  "db not create")
+        
+        print("hello")
 
+        
+        
+        
+        // Insert code here to initialize your application
+        
+        
+        //        window.isMovableByWindowBackground = true
+        //        window.titleVisibility = NSWindowTitleVisibility.hidden
+
+        
+        //        let viewController = ViewController()
+        //        window.contentViewController = viewController
+    }
+    
     func applicationWillTerminate(_ aNotification: Notification) {
         // Insert code here to tear down your application
     }
-
-
+    
+    
 }
 
