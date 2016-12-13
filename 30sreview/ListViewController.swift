@@ -20,7 +20,6 @@ class ListViewController: NSViewController , NSTableViewDataSource, NSTableViewD
         do{
             items = Array(try PersistentTheShareInstance.sharedInstance.db!.prepare(ReviewTable.posts))
             
-
         } catch {
             print("some error")
         }
