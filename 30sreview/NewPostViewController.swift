@@ -22,10 +22,23 @@ class NewPostViewController: NSViewController {
         let newPost = mytextview.textStorage?.string
         print(newPost ?? "postNotExist")
         print((newPost != nil) && !(newPost?.isEmpty)!)
+        var insertSuccess = false
         if((newPost != nil) && !(newPost?.isEmpty)!){
-            PersistentTheShareInstance.sharedInstance.insertPost(content: newPost!)
+            insertSuccess = PersistentTheShareInstance.sharedInstance.insertPost(content: newPost!)
+        }
+        print("insert post success\(insertSuccess)")
+
+        if(insertSuccess){
+            mytextview.textStorage?.setAttributedString(NSAttributedString())
         }
         
+        if (self.parent?.childViewControllers.count == 3){
+            let tabViewContorller = self.parent as! ReviewTabViewController
+            tabViewContorller.selectedTabViewItemIndex = 1
+        }
+
+        
+
 
     }
     
@@ -33,7 +46,6 @@ class NewPostViewController: NSViewController {
         super.viewDidLoad()
         frame.layer?.backgroundColor = NSColor.white.cgColor
       
-        
         
         
         

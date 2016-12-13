@@ -46,15 +46,17 @@ class Persistent : NSObject {
         }
     }
     
-    func insertPost(content: String) {
+    func insertPost(content: String) -> Bool {
         
         let insert = ReviewTable.posts.insert(ReviewTable.entry <- content)
+        var yes = false
         do{
 
-        _ = try db?.run(insert)
+            yes = ((try db?.run(insert)) != nil)
         } catch {
             print ("error on insert \(content)")
         }
+        return yes
 
     }
     

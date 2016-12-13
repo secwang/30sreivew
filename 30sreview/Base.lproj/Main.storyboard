@@ -680,10 +680,10 @@
             </objects>
             <point key="canvasLocation" x="-3685" y="536"/>
         </scene>
-        <!--Tab View Controller-->
+        <!--Review Tab View Controller-->
         <scene sceneID="exb-Fg-SZU">
             <objects>
-                <tabViewController selectedTabViewItemIndex="1" id="9XD-5m-Vgk" sceneMemberID="viewController">
+                <tabViewController selectedTabViewItemIndex="1" id="9XD-5m-Vgk" customClass="ReviewTabViewController" customModule="_0sreview" customModuleProvider="target" sceneMemberID="viewController">
                     <visualEffectView key="view" wantsLayer="YES" appearanceType="vibrantLight" blendingMode="behindWindow" material="appearanceBased" state="followsWindowActiveState" id="ZZq-E3-lqP">
                         <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
@@ -850,7 +850,7 @@
                 </viewController>
                 <customObject id="MXB-r7-Ge1" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="855.5" y="1513"/>
+            <point key="canvasLocation" x="803" y="1652"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="h3F-f6-RXf">
