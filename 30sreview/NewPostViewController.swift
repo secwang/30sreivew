@@ -10,7 +10,11 @@ import Foundation
 import Cocoa
 
 class NewPostViewController: NSViewController , NSTextViewDelegate{
-    
+
+    static let countDown = 30
+    var currentCountDown = 0
+
+    var startCountDown = true
 
     @IBOutlet var mytextview: NSTextView!
     
@@ -62,7 +66,35 @@ class NewPostViewController: NSViewController , NSTextViewDelegate{
     // add text change callback.
     func textDidChange(_ notification: Notification) {
         guard (notification.object as? NSTextView) != nil else { return }
-        print(mytextview.string ?? "haha")
+        DispatchQueue.global().async {
+            self.startCountDownFunc()
+        }
+   
+    }
+    
+    func startCountDownFunc(){
+        print("hello")
+        let newPost = mytextview.textStorage?.string
+
+        if ((newPost != nil) && !((newPost?.isEmpty)!)){
+        if(startCountDown){
+            print("start render countdown")
+            startCountDown = false
+            currentCountDown = NewPostViewController.countDown
+            while currentCountDown > 0  {
+                print(currentCountDown)
+
+                currentCountDown = currentCountDown - 1
+                Thread.sleep(forTimeInterval: 1)
+                print(currentCountDown)
+                DispatchQueue.main.async {
+
+                    self.timer.stringValue =  String(self.currentCountDown) + "S"
+                }
+            }
+
+        }
+        }
     }
 
 }
