@@ -12,6 +12,7 @@ import SQLite
 
 class ListViewController: NSViewController , NSTableViewDataSource, NSTableViewDelegate {
     
+    @IBOutlet weak var tableview: NSTableView!
     
     var items = [Row]()
     
@@ -22,6 +23,7 @@ class ListViewController: NSViewController , NSTableViewDataSource, NSTableViewD
             self.representedObject = items
 
             
+
         } catch {
             print("some error")
         }
@@ -34,8 +36,7 @@ class ListViewController: NSViewController , NSTableViewDataSource, NSTableViewD
         do{
             items = Array(try PersistentTheShareInstance.sharedInstance.db!.prepare(ReviewTable.posts))
             self.representedObject = items
-
-
+            tableview.reloadData()
             print("update success")
         } catch {
             
