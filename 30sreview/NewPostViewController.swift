@@ -32,7 +32,7 @@ class NewPostViewController: NSViewController {
             mytextview.textStorage?.setAttributedString(NSAttributedString())
         }
         
-        if (self.parent?.childViewControllers.count == 3){
+        if (self.parent?.childViewControllers.count == 2){
             let tabViewContorller = self.parent as! ReviewTabViewController
             tabViewContorller.selectedTabViewItemIndex = 1
         }
@@ -45,9 +45,6 @@ class NewPostViewController: NSViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         frame.layer?.backgroundColor = NSColor.white.cgColor
-      
-        
-        
         
         // Do any additional setup after loading the view.
     }

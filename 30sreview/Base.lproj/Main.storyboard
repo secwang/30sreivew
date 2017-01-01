@@ -683,7 +683,7 @@
         <!--Review Tab View Controller-->
         <scene sceneID="exb-Fg-SZU">
             <objects>
-                <tabViewController selectedTabViewItemIndex="2" id="9XD-5m-Vgk" customClass="ReviewTabViewController" customModule="_0sreview" customModuleProvider="target" sceneMemberID="viewController">
+                <tabViewController selectedTabViewItemIndex="1" id="9XD-5m-Vgk" customClass="ReviewTabViewController" customModule="_0sreview" customModuleProvider="target" sceneMemberID="viewController">
                     <visualEffectView key="view" wantsLayer="YES" appearanceType="vibrantLight" blendingMode="behindWindow" material="appearanceBased" state="followsWindowActiveState" id="ZZq-E3-lqP">
                         <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
