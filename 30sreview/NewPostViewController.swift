@@ -86,7 +86,6 @@ class NewPostViewController: NSViewController , NSTextViewDelegate{
                 currentCountDown = NewPostViewController.countDown
                 while currentCountDown > 0  {
                     if(!startCountDown){
-
                         currentCountDown = currentCountDown - 1
                         Thread.sleep(forTimeInterval: 1)
                         DispatchQueue.main.async {
