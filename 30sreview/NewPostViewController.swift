@@ -9,13 +9,14 @@
 import Foundation
 import Cocoa
 
-class NewPostViewController: NSViewController {
+class NewPostViewController: NSViewController , NSTextViewDelegate{
     
 
     @IBOutlet var mytextview: NSTextView!
     
     @IBOutlet var frame: NSView!
     
+    @IBOutlet weak var timer: NSTextField!
     
     @IBAction func sendContent(_ sender: Any) {
         
@@ -45,7 +46,7 @@ class NewPostViewController: NSViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         frame.layer?.backgroundColor = NSColor.white.cgColor
-        
+        self.mytextview.delegate = self
         // Do any additional setup after loading the view.
     }
     
@@ -56,7 +57,12 @@ class NewPostViewController: NSViewController {
     }
     
     override func viewWillAppear() {
-        
+        // Update the view, if already loaded.
+    }
+    // add text change callback.
+    func textDidChange(_ notification: Notification) {
+        guard (notification.object as? NSTextView) != nil else { return }
+        print(mytextview.string ?? "haha")
     }
 
 }
