@@ -19,6 +19,8 @@ class ListViewController: NSViewController , NSTableViewDataSource, NSTableViewD
         super.viewDidLoad()
         do{
             items = Array(try PersistentTheShareInstance.sharedInstance.db!.prepare(ReviewTable.posts))
+            self.representedObject = items
+
             
         } catch {
             print("some error")
@@ -27,11 +29,27 @@ class ListViewController: NSViewController , NSTableViewDataSource, NSTableViewD
         // Do any additional setup after loading the view.
     }
     
+    override func viewDidAppear(){
+        super.viewDidAppear()
+        do{
+            items = Array(try PersistentTheShareInstance.sharedInstance.db!.prepare(ReviewTable.posts))
+            self.representedObject = items
+
+
+            print("update success")
+        } catch {
+            
+            print("some error")
+        }
+    }
+    
     override var representedObject: Any? {
         didSet {
+            print("\(items.count)")
             // Update the view, if already loaded.
         }
     }
+    
     func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
         
         let result : ReviewCell = tableView.make(withIdentifier: tableColumn!.identifier, owner: self) as! ReviewCell

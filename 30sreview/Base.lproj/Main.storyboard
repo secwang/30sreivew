@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11542"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11762"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -683,7 +683,7 @@
         <!--Review Tab View Controller-->
         <scene sceneID="exb-Fg-SZU">
             <objects>
-                <tabViewController selectedTabViewItemIndex="1" id="9XD-5m-Vgk" customClass="ReviewTabViewController" customModule="_0sreview" customModuleProvider="target" sceneMemberID="viewController">
+                <tabViewController selectedTabViewItemIndex="2" id="9XD-5m-Vgk" customClass="ReviewTabViewController" customModule="_0sreview" customModuleProvider="target" sceneMemberID="viewController">
                     <visualEffectView key="view" wantsLayer="YES" appearanceType="vibrantLight" blendingMode="behindWindow" material="appearanceBased" state="followsWindowActiveState" id="ZZq-E3-lqP">
                         <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
@@ -693,7 +693,6 @@
                         <tabViewItem label="List" identifier="" id="lZz-sg-r0C">
                             <accessibility description="hello"/>
                         </tabViewItem>
-                        <tabViewItem label="More" id="KHz-Sh-YOm"/>
                     </tabViewItems>
                     <viewControllerTransitionOptions key="transitionOptions"/>
                     <tabView key="tabView" type="noTabsNoBorder" id="eE3-G3-mcn">
@@ -705,7 +704,6 @@
                     <connections>
                         <segue destination="9of-ZG-Hv8" kind="relationship" relationship="tabItems" id="Dzf-Iv-Dco"/>
                         <segue destination="MGj-S9-XZk" kind="relationship" relationship="tabItems" id="gD1-ql-2H6"/>
-                        <segue destination="zDv-W7-9Se" kind="relationship" relationship="tabItems" id="Nqy-eF-ahk"/>
                     </connections>
                 </tabViewController>
                 <customObject id="Tqc-kJ-NU4" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
@@ -851,19 +849,6 @@
                 <customObject id="MXB-r7-Ge1" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="803" y="1652"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="h3F-f6-RXf">
-            <objects>
-                <viewController id="zDv-W7-9Se" sceneMemberID="viewController">
-                    <view key="view" id="Ik1-6G-JoJ">
-                        <rect key="frame" x="0.0" y="0.0" width="371" height="600"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </view>
-                </viewController>
-                <customObject id="vF1-Pb-Veo" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="166" y="1711"/>
         </scene>
     </scenes>
 </document>
