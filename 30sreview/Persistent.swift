@@ -38,7 +38,11 @@ class Persistent : NSObject {
        
         do{
             try db?.run(ReviewTable.posts.create(ifNotExists: true) { t in
+                t.column(ReviewTable.id,primaryKey: true)
                 t.column(ReviewTable.entry)
+                t.column(ReviewTable.createAt)
+                t.column(ReviewTable.updateAt)
+
             })
       
         } catch {
@@ -47,14 +51,16 @@ class Persistent : NSObject {
     }
     
     func insertPost(content: String) -> Bool {
-        
-        let insert = ReviewTable.posts.insert(ReviewTable.entry <- content)
+        let insert = ReviewTable.posts.insert(ReviewTable.entry <- content,
+                                              ReviewTable.createAt <- Date(),
+                                              ReviewTable.updateAt <- Date()
+        )
         var yes = false
         do{
 
             yes = ((try db?.run(insert)) != nil)
         } catch {
-            print ("error on insert \(content)")
+            print("Error info: \(error)")
         }
         return yes
 
