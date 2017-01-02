@@ -10,18 +10,52 @@ import Foundation
 import Cocoa
 import SQLite
 
-class ListViewController: NSViewController , NSTableViewDataSource, NSTableViewDelegate {
+class ListViewController: NSViewController , NSTableViewDataSource, NSTableViewDelegate ,NSSearchFieldDelegate{
+   
     
+    @IBOutlet weak var search: NSSearchField!
+
     @IBOutlet weak var tableview: NSTableView!
+
+    @IBAction func startSearch(_ sender: Any) {
+        var query = search.stringValue
+        if ((query != nil) && !(query.isEmpty)){
+            query = "%"+query + "%"
+            do {
+                items = Array(try PersistentTheShareInstance.sharedInstance.db!.prepare(ReviewTable.posts.filter(ReviewTable.entry.like(query))))
+                self.representedObject = items
+                tableview.reloadData()
+            } catch {
+                print("some error in start query.")
+            }
+        } else{
+
+            do {
+
+            items = Array(try PersistentTheShareInstance.sharedInstance.db!.prepare(ReviewTable.posts))
+            self.representedObject = items
+            tableview.reloadData()
+            print("restore it")
+            } catch {
+                print("some error in start query.")
+            }
+
+        }
+
+
+    }
     
+
     var items = [Row]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.search.delegate = self
+
         do{
             items = Array(try PersistentTheShareInstance.sharedInstance.db!.prepare(ReviewTable.posts))
             self.representedObject = items
-
+            
             
 
         } catch {
@@ -30,6 +64,7 @@ class ListViewController: NSViewController , NSTableViewDataSource, NSTableViewD
         
         // Do any additional setup after loading the view.
     }
+    
     
     override func viewDidAppear(){
         super.viewDidAppear()
@@ -43,7 +78,10 @@ class ListViewController: NSViewController , NSTableViewDataSource, NSTableViewD
             print("some error")
         }
     }
+
     
+
+
     override var representedObject: Any? {
         didSet {
             print("\(items.count)")

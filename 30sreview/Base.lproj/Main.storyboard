@@ -728,7 +728,7 @@
                                         <textView ambiguous="YES" importsGraphics="NO" usesFontPanel="YES" findStyle="panel" continuousSpellChecking="YES" allowsUndo="YES" usesRuler="YES" allowsNonContiguousLayout="YES" quoteSubstitution="YES" dashSubstitution="YES" spellingCorrection="YES" smartInsertDelete="YES" id="GiJ-pc-Gxc">
                                             <rect key="frame" x="0.0" y="0.0" width="369" height="523"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="backgroundColor" red="0.83525019884109497" green="0.83532470464706421" blue="0.83518785238265991" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <size key="minSize" width="369" height="523"/>
                                             <size key="maxSize" width="463" height="10000000"/>
                                             <color key="insertionPointColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -786,14 +786,14 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <scrollView fixedFrame="YES" autohidesScrollers="YES" horizontalLineScroll="76" horizontalPageScroll="10" verticalLineScroll="76" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qbk-rw-PGa">
-                                <rect key="frame" x="0.0" y="0.0" width="371" height="600"/>
+                                <rect key="frame" x="0.0" y="39" width="371" height="561"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <clipView key="contentView" ambiguous="YES" id="jm3-gX-GKa">
-                                    <rect key="frame" x="1" y="0.0" width="369" height="599"/>
+                                    <rect key="frame" x="1" y="0.0" width="369" height="560"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowHeight="74" headerView="kSW-Mw-CC6" viewBased="YES" id="NoJ-xl-T82">
-                                            <rect key="frame" x="0.0" y="0.0" width="369" height="576"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="369" height="537"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <size key="intercellSpacing" width="3" height="2"/>
                                             <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -852,16 +852,32 @@
                                     <rect key="frame" x="0.0" y="0.0" width="369" height="23"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableHeaderView>
+                                <connections>
+                                    <outlet property="nextKeyView" destination="NoJ-xl-T82" id="SpS-Ug-eQW"/>
+                                </connections>
                             </scrollView>
+                            <searchField wantsLayer="YES" verticalHuggingPriority="750" fixedFrame="YES" allowsCharacterPickerTouchBarItem="NO" textCompletion="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aBu-KX-JNR">
+                                <rect key="frame" x="20" y="9" width="157" height="22"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <searchFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" borderStyle="bezel" usesSingleLineMode="YES" bezelStyle="round" id="fHh-iX-RzK">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </searchFieldCell>
+                                <connections>
+                                    <action selector="startSearch:" target="MGj-S9-XZk" id="c6G-Sn-3ya"/>
+                                </connections>
+                            </searchField>
                         </subviews>
                     </view>
                     <connections>
+                        <outlet property="search" destination="aBu-KX-JNR" id="2se-S9-i76"/>
                         <outlet property="tableview" destination="NoJ-xl-T82" id="WfP-wa-wWp"/>
                     </connections>
                 </viewController>
                 <customObject id="MXB-r7-Ge1" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="803" y="1652"/>
+            <point key="canvasLocation" x="802.5" y="1652"/>
         </scene>
     </scenes>
 </document>

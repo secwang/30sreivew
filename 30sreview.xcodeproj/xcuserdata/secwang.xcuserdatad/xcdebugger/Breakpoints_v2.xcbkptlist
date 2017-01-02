@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "30sreview/NewPostViewController.swift"
-            timestampString = "504965195.409047"
+            timestampString = "504967072.286153"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "96"
-            endingLineNumber = "96"
+            startingLineNumber = "95"
+            endingLineNumber = "95"
             landmarkName = "startCountDownFunc()"
             landmarkType = "7">
          </BreakpointContent>
