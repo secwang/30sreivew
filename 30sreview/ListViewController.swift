@@ -96,6 +96,63 @@ class ListViewController: NSViewController , NSTableViewDataSource, NSTableViewD
         }
     }
     
+    override func rightMouseDown(with event: NSEvent){
+     
+        var index = mytableview.selectedRow
+        
+        if(index > -1){
+            let editMenuItem = NSMenuItem()
+            editMenuItem.title = "edit"
+            editMenuItem.keyEquivalent = "e"
+            
+            let deleteMenuItem = NSMenuItem()
+            deleteMenuItem.title = "delete"
+            deleteMenuItem.keyEquivalent = "d"
+            deleteMenuItem.action  = #selector(deleteItem(_:))
+            
+            let rightMenu = NSMenu()
+            rightMenu.addItem(editMenuItem)
+            rightMenu.addItem(deleteMenuItem)
+            NSMenu.popUpContextMenu(rightMenu,  with: event,for: mytableview)
+
+        }
+        
+    }
+    
+    func deleteItem (_ sender:AnyObject) {
+        
+        print("delete Item")
+        let row = mytableview.selectedRow
+        let raw = items[row]
+        let id = raw.get(ReviewTable.id)
+        
+        let needDeleted = ReviewTable.posts.filter(ReviewTable.id == id)
+
+        do {
+            if try (PersistentTheShareInstance.sharedInstance.db?.run(needDeleted.delete()))! > 0 {
+                print("deleted ", id)
+            } else {
+                print("id not found")
+            }
+        } catch {
+            print("delete failed: \(error)")
+        }
+        
+        do{
+            items = Array(try PersistentTheShareInstance.sharedInstance.db!.prepare(ReviewTable.posts.order(ReviewTable.id.desc)))
+            self.representedObject = items
+            mytableview.reloadData()
+            print("update success")
+        } catch {
+            
+            print("some error")
+        }
+        
+        
+    }
+
+
+    
     func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
         
         let result : ReviewCell = tableView.make(withIdentifier: tableColumn!.identifier, owner: self) as! ReviewCell
