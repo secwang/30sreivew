@@ -871,8 +871,8 @@
                         </subviews>
                     </view>
                     <connections>
+                        <outlet property="mytableview" destination="NoJ-xl-T82" id="LcT-J7-Q7z"/>
                         <outlet property="search" destination="aBu-KX-JNR" id="2se-S9-i76"/>
-                        <outlet property="tableview" destination="NoJ-xl-T82" id="WfP-wa-wWp"/>
                     </connections>
                 </viewController>
                 <customObject id="MXB-r7-Ge1" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>

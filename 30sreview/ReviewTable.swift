@@ -10,7 +10,7 @@ import Foundation
 import SQLite
 
 class ReviewTable {
-        static let posts = Table("posts")
+static let posts = Table("posts")
 
         static let id = Expression<Int64>("id")
         static let entry = Expression<String>("entry")

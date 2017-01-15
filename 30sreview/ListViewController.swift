@@ -15,16 +15,17 @@ class ListViewController: NSViewController , NSTableViewDataSource, NSTableViewD
     
     @IBOutlet weak var search: NSSearchField!
 
-    @IBOutlet weak var tableview: NSTableView!
+    @IBOutlet weak var mytableview: NSTableView!
 
     @IBAction func startSearch(_ sender: Any) {
         var query = search.stringValue
         if ((query != nil) && !(query.isEmpty)){
             query = "%"+query + "%"
             do {
-                items = Array(try PersistentTheShareInstance.sharedInstance.db!.prepare(ReviewTable.posts.filter(ReviewTable.entry.like(query))))
+                items = Array(try PersistentTheShareInstance.sharedInstance.db!.prepare(ReviewTable.posts.order(ReviewTable.id.desc)
+                .filter(ReviewTable.entry.like(query))))
                 self.representedObject = items
-                tableview.reloadData()
+                mytableview.reloadData()
             } catch {
                 print("some error in start query.")
             }
@@ -32,9 +33,9 @@ class ListViewController: NSViewController , NSTableViewDataSource, NSTableViewD
 
             do {
 
-            items = Array(try PersistentTheShareInstance.sharedInstance.db!.prepare(ReviewTable.posts))
+            items = Array(try PersistentTheShareInstance.sharedInstance.db!.prepare(ReviewTable.posts.order(ReviewTable.id.desc)))
             self.representedObject = items
-            tableview.reloadData()
+            mytableview.reloadData()
             print("restore it")
             } catch {
                 print("some error in start query.")
@@ -51,12 +52,13 @@ class ListViewController: NSViewController , NSTableViewDataSource, NSTableViewD
     override func viewDidLoad() {
         super.viewDidLoad()
         self.search.delegate = self
+        self.mytableview.target = self
+        self.mytableview.doubleAction = #selector(tableViewDoubleClick(_:))
+
 
         do{
-            items = Array(try PersistentTheShareInstance.sharedInstance.db!.prepare(ReviewTable.posts))
+            items = Array(try PersistentTheShareInstance.sharedInstance.db!.prepare(ReviewTable.posts.order(ReviewTable.id.desc)))
             self.representedObject = items
-            
-            
 
         } catch {
             print("some error")
@@ -69,9 +71,9 @@ class ListViewController: NSViewController , NSTableViewDataSource, NSTableViewD
     override func viewDidAppear(){
         super.viewDidAppear()
         do{
-            items = Array(try PersistentTheShareInstance.sharedInstance.db!.prepare(ReviewTable.posts))
+            items = Array(try PersistentTheShareInstance.sharedInstance.db!.prepare(ReviewTable.posts.order(ReviewTable.id.desc)))
             self.representedObject = items
-            tableview.reloadData()
+            mytableview.reloadData()
             print("update success")
         } catch {
             
@@ -80,7 +82,12 @@ class ListViewController: NSViewController , NSTableViewDataSource, NSTableViewD
     }
 
     
-
+    func tableViewDoubleClick(_ sender:AnyObject) {
+        print("into")
+        print(self.mytableview.clickedRow)
+        
+    
+    }
 
     override var representedObject: Any? {
         didSet {
