@@ -873,11 +873,35 @@
                     <connections>
                         <outlet property="mytableview" destination="NoJ-xl-T82" id="LcT-J7-Q7z"/>
                         <outlet property="search" destination="aBu-KX-JNR" id="2se-S9-i76"/>
+                        <segue destination="a7u-zE-Pxn" kind="popover" identifier="ShowEditView" popoverBehavior="semitransient" preferredEdge="minX" id="US2-uZ-sgk"/>
                     </connections>
                 </viewController>
                 <customObject id="MXB-r7-Ge1" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="802.5" y="1652"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="T4E-9q-ehB">
+            <objects>
+                <viewController id="a7u-zE-Pxn" sceneMemberID="viewController">
+                    <view key="view" id="slY-NO-cb9">
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Qf3-xe-dFd">
+                                <rect key="frame" x="289" y="28" width="72" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="push" title="Done" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="IBW-us-o1j">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                            </button>
+                        </subviews>
+                    </view>
+                </viewController>
+                <customObject id="1pj-mH-ib0" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1352" y="1529"/>
         </scene>
     </scenes>
 </document>

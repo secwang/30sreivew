@@ -104,6 +104,8 @@ class ListViewController: NSViewController , NSTableViewDataSource, NSTableViewD
             let editMenuItem = NSMenuItem()
             editMenuItem.title = "edit"
             editMenuItem.keyEquivalent = "e"
+            editMenuItem.action  = #selector(editItem(_:))
+
             
             let deleteMenuItem = NSMenuItem()
             deleteMenuItem.title = "delete"
@@ -118,6 +120,12 @@ class ListViewController: NSViewController , NSTableViewDataSource, NSTableViewD
         }
         
     }
+    
+    func editItem (_ sender:AnyObject) {
+        print("need edit")
+        self.performSegue(withIdentifier: "ShowEditView", sender: self)
+    }
+
     
     func deleteItem (_ sender:AnyObject) {
         
@@ -166,6 +174,7 @@ class ListViewController: NSViewController , NSTableViewDataSource, NSTableViewD
 //        return items.count
         return items.count
     }
+    
     
     
 }
